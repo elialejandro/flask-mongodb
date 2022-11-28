@@ -15,7 +15,12 @@ def index():
         print("Colección iniciada")
         
         datos=list(collection.find())
-        print(datos)
+        jsonData = [];
+
+        for item in datos:
+            jsonData.append({
+                "nombre": item.nombre
+            })
         
         cliente.close()
         print("Conexión cerrada")
@@ -25,7 +30,7 @@ def index():
     except pymongo.errors.ConnectionFailure as errorConexion:
         return jsonify({"Choo Choo": "error de conexion2"})
 
-    return jsonify({"data": datos})
+    return jsonify({"data": jsonData})
 
 
 if __name__ == '__main__':
