@@ -16,8 +16,7 @@ def index():
         
         datos=list(collection.find())
         print(datos)
-        for x in datos:
-            print(x)
+        
         cliente.close()
         print("Conexión cerrada")
 
@@ -26,7 +25,7 @@ def index():
     except pymongo.errors.ConnectionFailure as errorConexion:
         return jsonify({"Choo Choo": "error de conexion2"})
 
-    return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
+    return jsonify({"data": datos})
 
 
 if __name__ == '__main__':
