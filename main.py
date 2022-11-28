@@ -33,5 +33,13 @@ def index():
     return jsonify({"data": jsonData})
 
 
+@app.route('/temperatura')
+def temperatura():
+    return jsonify({
+        "saludo": "Hola mundo"
+    })
+
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
