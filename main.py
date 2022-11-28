@@ -19,7 +19,7 @@ def index():
 
         for item in datos:
             jsonData.append({
-                "nombre": item.nombre
+                'nombre': item['nombre']
             })
         
         cliente.close()
